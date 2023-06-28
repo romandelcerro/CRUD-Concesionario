@@ -1,0 +1,51 @@
+﻿<Application x:Class="ConcesionarioBBDD.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ConcesionarioBBDD"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        
+        <Style TargetType="Button">
+            
+            <Setter Property="Background" Value="SkyBlue" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Bradley Hand ITC bold" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background= "{TemplateBinding Background}" BorderBrush="Black" BorderThickness="2,2,3,3" CornerRadius="7">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+                
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightGray"/>
+                </Trigger>
+            </Style.Triggers>
+            
+        </Style>
+        
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontFamily" Value="Bradley Hand ITC bold" />
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+
+        <Style x:Key="borderCabecera" TargetType="Border">
+            <Setter Property="Background" Value="SkyBlue"></Setter>
+            <Setter Property="BorderBrush" Value="Gray"></Setter>
+            <Setter Property="BorderThickness" Value="0,0,0,2"></Setter>
+        </Style>
+
+        <Style x:Key="textoCabecera" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="FontFamily" Value="Bradley Hand ITC bold"></Setter>
+            <Setter Property="FontSize" Value="40px"></Setter>
+        </Style>
+        
+    </Application.Resources>
+</Application>

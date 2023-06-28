@@ -1,0 +1,92 @@
+﻿<Window x:Class="ConcesionarioBBDD.Borrar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConcesionarioBBDD"
+        mc:Ignorable="d"
+        Title="Borrar" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Background" Value="SkyBlue"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200px"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75px"></RowDefinition>
+            <RowDefinition Height="175"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Style="{StaticResource borderCabecera}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"></Border>
+
+        <TextBlock Style="{StaticResource textoCabecera}" HorizontalAlignment="Center" Text="Concesionarios-DAM" VerticalAlignment="Center" Grid.ColumnSpan="3"></TextBlock>
+
+        <Image HorizontalAlignment="Left" Margin="20,0,0,0" Source="/Imágenes/fondo.png"></Image>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Orientation="Vertical" Background="LightGray">
+            <Border BorderBrush="SkyBlue" BorderThickness="1px" CornerRadius="10" Margin="15,25,15,0">
+                <StackPanel>
+                    <Label FontFamily="Bradley Hand ITC bold" Margin="5,5,0,5" FontSize="15">Elige tu marca</Label>
+                    <RadioButton Name="rbPeugeot" IsChecked="True" Click="rbPeugeot_Click" Content="Peugeot" Margin="5,0,0,0" FontFamily="Bradley Hand ITC" FontSize="12"></RadioButton>
+                    <RadioButton Name="rbHyundai" Click="rbHyundai_Click" Content="Hyundai" Margin="5,5,0,0" FontFamily="Bradley Hand ITC" FontSize="12"></RadioButton>
+                    <RadioButton Name="rbKia" Click="rbKia_Click" Content="Kia" Margin="5,5,0,30" FontFamily="Bradley Hand ITC" FontSize="12"></RadioButton>
+                </StackPanel>
+            </Border>
+
+            <StackPanel Margin="15,20,15,0">
+
+                <Label Margin="0,0,0,10" FontFamily="Bradley Hand ITC bold" FontSize="15">Elige un modelo</Label>
+                <ComboBox Name="cbModelos" SelectionChanged="cbModelos_SelectionChanged"></ComboBox>
+            </StackPanel>
+
+            <Button  Opacity="0.8" Height="55" Width="55" Margin="0,90,0,0" Click="Button_Home">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Width="55">
+                        <Image Source="/Imágenes/home.png" Margin="0,0,0,0"></Image>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Vertical">
+            <ListView Name="lvVehiculos" Height="144" Margin="16,25,16,0" FontFamily="Bradley Hand ITC" FontSize="15">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Marca"  DisplayMemberBinding="{Binding Marca}" Width="112"/>
+                        <GridViewColumn Header="Modelo"  DisplayMemberBinding="{Binding Modelo}" Width="112"/>
+                        <GridViewColumn Header="Versión"  DisplayMemberBinding="{Binding Version}" Width="112"/>
+                        <GridViewColumn Header="Combustible"  DisplayMemberBinding="{Binding Combustible}" Width="112"/>
+                        <GridViewColumn Header="Precio"  DisplayMemberBinding="{Binding Precio}" Width="112"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </StackPanel>
+
+        <Border BorderBrush="SkyBlue" BorderThickness="1px" CornerRadius="10" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="220" Margin="16,0,16,0">
+
+            <Image x:Name="imagen" Source="/Imágenes/logo-coche.jpg" Height="210" Opacity="0.15"/>
+
+        </Border>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button  Opacity="0.8" Height="100" Width="300" Click="Button_Borrar">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Width="300" HorizontalAlignment="Left">
+                        <Image Source="/Imágenes/borrar.png" Margin="0,0,20,0"></Image>
+                        <Label VerticalAlignment="Center" FontSize="50">Borrar</Label>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>
